@@ -44,6 +44,13 @@ router.post('/product-create', upload.single('imageUpload'), (req,res,next)=>{
     })
     res.redirect('/products')
 })
+//Delete product
+router.get('/product-delete/:id',(req, res, next)=> {
+    let prodId = req.params.id | 0;
+    myProducts.splice(myProducts.findIndex(product=>product.id == prodId), 1);
+    res.redirect('/products')
+});
+
 
 //Edit Product
 router.post('/product-edit/:id', upload.single('imageUpload'), (req,res,next)=>{
