@@ -47,8 +47,8 @@ router.post('/product-create', upload.single('imageUpload'), (req,res,next)=>{
 //Delete product
 router.get('/product-delete/:id',(req, res, next)=> {
     let prodId = req.params.id | 0;
-    myProducts.splice(myProducts.findIndex(product=>product.id == prodId), 1);
-    res.redirect('/products')
+    let deleteProd = myProducts.splice(myProducts.findIndex(product=>product.id == prodId), 1);
+    res.render('deletesuccessful', {product:deleteProd[0]})
 });
 
 

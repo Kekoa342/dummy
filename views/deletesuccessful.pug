@@ -1,0 +1,13 @@
+extends layout
+
+block content
+    h1= product.name
+    p $ #{product.price}
+    p size: #{product.size}
+    p
+    img.image(src=product.image_path width='100px' height='100px')
+
+
+    h1 Has successfully been deleted!
+    p
+        a(href='/products') Go Back to Products
